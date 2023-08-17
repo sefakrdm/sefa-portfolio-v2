@@ -40,7 +40,7 @@ export default function Home() {
             },
         });
         bodyScrollBar.addListener(ScrollTrigger.refresh); 
-  });
+  }, []);
 
   return (
     <div id="smooth-wrapper" data-scrollbar>

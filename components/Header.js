@@ -59,7 +59,7 @@ export default function Header() {
         // let headerBoxin = 
         //     gsap.fromTo(".g-box", { duration: 5, scale: -10, delay: 0.5, stagger: 0.2, ease: "elastic", force3D: true }, { scale: 1 });
 
-    });
+    }, []);
     
     // useIsomorphicLayoutEffect(() => {
     //     return () => {

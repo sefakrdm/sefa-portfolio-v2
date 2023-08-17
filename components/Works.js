@@ -53,7 +53,7 @@ export default function Works() {
           0
         );
     };
-  });
+  }, []);
   return (
     <section
       id="works"

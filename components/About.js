@@ -32,7 +32,7 @@ export default function About() {
           ease: "none",
         }, 0);
     };
-  });
+  }, []);
 
   return (
     <section

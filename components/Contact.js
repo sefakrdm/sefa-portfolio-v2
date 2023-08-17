@@ -50,7 +50,7 @@ export default function Contact() {
             ease: "none",
             }, 0);
       };
-    });
+    }, []);
   return (
     <section
         id="contact"

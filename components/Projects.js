@@ -56,7 +56,7 @@ export default function Projects() {
             ease: "none",
             }, 0);
       };
-    });
+    }, []);
   return (
     <section id="projects" className="w-full max-w-[1400px] mx-auto projects-wrap xl:px-0 px-4">
         <div className="group p-8 bg-zinc-800 rounded-xxl relative scale-100 border-t border-zinc-700">
