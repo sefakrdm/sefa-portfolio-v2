@@ -1,0 +1,25 @@
+[
+    {
+        "id": 1,
+        "name": "Hostriva",
+        "image": "/hostriva-logo.png",
+        "url": "https://hostriva.net",
+        "card_color": "rgb(219 234 254)"
+    },
+
+    {
+        "id": 2,
+        "name": "Bersa",
+        "image": "/bersa-logo.png",
+        "url": "https://bersa.com.tr",
+        "card_color": "rgb(209 250 229)"
+    },
+
+    {
+        "id": 3,
+        "name": "Secriva",
+        "image": "/secriva-2023-logo.png",
+        "url": "https://secriva.com",
+        "card_color": "rgb(224 231 255)"
+    }
+]
