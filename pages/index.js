@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 // import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
@@ -15,35 +16,40 @@ import Contact from "@/components/Contact";
 export default function Home() {
   const currentYear = new Date().getFullYear();
 
-  useIsomorphicLayoutEffect(() => {
-      // Scrollbar.use(OverscrollPlugin);
-      const scroller = document.querySelector("[data-scrollbar]");
-          const bodyScrollBar = Scrollbar.init(scroller, {
-            renderByPixels: true,
-            damping: 0.09,
-            // plugins: {
-            //  overscroll: {
-            //    effect: "bounce"
-            //  }
-            // }
-          });
-    
-          gsap.registerPlugin(ScrollTrigger);
-    
-          // code for gsap and smooth scrollbar work together
-          ScrollTrigger.scrollerProxy("body", {
-            scrollTop(value) {
-              if (arguments.length) {
-                bodyScrollBar.scrollTop = value;
-              }
-              return bodyScrollBar.scrollTop;
-            },
+  useEffect(() => {
+    // Scrollbar.use(OverscrollPlugin);
+    const scroller = document.querySelector(".scroller");
+        let bodyScrollBar = Scrollbar.init(scroller, {
+          renderByPixels: true,
+          damping: 0.09,
+          // plugins: {
+          //  overscroll: {
+          //    effect: "bounce"
+          //  }
+          // }
         });
-        bodyScrollBar.addListener(ScrollTrigger.refresh); 
-  }, []);
+  
+        gsap.registerPlugin(ScrollTrigger);
+  
+        // code for gsap and smooth scrollbar work together
+        ScrollTrigger.scrollerProxy(scroller, {
+          scrollTop(value) {
+            if (arguments.length) {
+              bodyScrollBar.scrollTop = value;
+            }
+            return bodyScrollBar.scrollTop;
+          },
+      });
+      bodyScrollBar.addListener(ScrollTrigger.update);
+
+      ScrollTrigger.defaults({ 
+        scroller: scroller,
+        pinType: 'transform'
+		  });		
+  })
 
   return (
-    <div id="smooth-wrapper" data-scrollbar>
+    <div id="smooth-wrapper" className="scroller">
       <Header />
       <main>
         <About />

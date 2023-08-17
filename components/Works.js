@@ -57,7 +57,7 @@ export default function Works() {
   return (
     <section
       id="works"
-      className="w-full max-w-[1400px] mx-auto py-4 works-wrap xl:px-0 px-4"
+      className="w-full container mx-auto py-4 works-wrap xl:px-0 px-4"
     >
       <div className="grid grid-rows-1 lg:grid-cols-2 grid-cols-1 gap-4">
         <Swiper

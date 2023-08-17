@@ -54,7 +54,7 @@ export default function Contact() {
   return (
     <section
         id="contact"
-        className="w-full max-w-[1400px] mx-auto contact-wrap xl:px-0 px-4"
+        className="w-full container mx-auto contact-wrap xl:px-0 px-4"
     >
         <div className="group p-8 bg-zinc-800 rounded-xxl relative scale-100 border-t border-zinc-700">
             <h2 className="uppercase text-xl text-cyan-200">GET IN TOUCH!</h2>

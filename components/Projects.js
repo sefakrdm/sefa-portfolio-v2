@@ -58,7 +58,7 @@ export default function Projects() {
       };
     }, []);
   return (
-    <section id="projects" className="w-full max-w-[1400px] mx-auto projects-wrap xl:px-0 px-4">
+    <section id="projects" className="w-full container mx-auto projects-wrap xl:px-0 px-4">
         <div className="group p-8 bg-zinc-800 rounded-xxl relative scale-100 border-t border-zinc-700">
             <h2 className="uppercase text-2xl font-semibold">My Projects</h2>
             <div className={`grid grid-rows-1 gap-4 py-8 ${projects?.length <= 2 ? 'grid-cols-'+projects.length:'lg:grid-cols-3 md:grid-cols-2 grid-cols-1'}`}>

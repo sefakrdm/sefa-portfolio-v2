@@ -38,7 +38,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="w-full max-w-[1400px] mx-auto py-4 about-wrap xl:px-0 px-4"
+      className="w-full container mx-auto py-4 about-wrap xl:px-0 px-4"
     >
       <div className="grid grid-rows-1 lg:grid-cols-2 grid-cols-1 gap-4">
         <div className="group bg-emerald-300 rounded-xxl text-zinc-800 relative border-t border-zinc-700 flex items-end justify-between left-box z-10">

@@ -102,8 +102,8 @@ export default function Header() {
     }, [clickLink]);
     
   return (
-    <header className="w-full max-w-[1400px] mx-auto header-wrap xl:px-0 px-4">
-        <div className="flex flex-col justify-center items-center py-20 start-box head-item">
+    <header className="w-full container mx-auto header-wrap xl:px-0 px-4">
+        <div className="flex flex-col justify-center items-center py-20 my-10 start-box head-item">
             <div className="bg-zinc-600 rounded-full p-3 border-t border-zinc-700">
                 <Image src="/sefa-avatar.png" alt="Sefa Karademir" width="100" height="100" className="avatar" />
             </div>
