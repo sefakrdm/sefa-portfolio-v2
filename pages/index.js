@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 // import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
@@ -16,7 +15,7 @@ import Contact from "@/components/Contact";
 export default function Home() {
   const currentYear = new Date().getFullYear();
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     // Scrollbar.use(OverscrollPlugin);
     const scroller = document.querySelector(".scroller");
         let bodyScrollBar = Scrollbar.init(scroller, {
