@@ -8,31 +8,32 @@ export default function About() {
   gsap.registerPlugin(ScrollTrigger);
 
   useIsomorphicLayoutEffect(() => {
-    return () => {
+    const ctx = gsap.context(() => {
       const a = gsap.timeline({
         scrollTrigger: {
           trigger: ".right-box",
           start: "top bottom",
-				  end: "center center",
+          end: "center center",
           scrub: 1,
         },
       });
       a.fromTo(".left-box", {
-          xPercent: 50,
-          ease: "none",
-        }, {
-          xPercent: 0,
-          ease: "none",
-        }, 0),
+        xPercent: 50,
+        ease: "none",
+      }, {
+        xPercent: 0,
+        ease: "none",
+      }, 0),
       a.fromTo(".right-box", {
-          xPercent: -50,
-          ease: "none",
-        }, {
-          xPercent: 0,
-          ease: "none",
-        }, 0);
-    };
-  }, []);
+        xPercent: -50,
+        ease: "none",
+      }, {
+        xPercent: 0,
+        ease: "none",
+      }, 0);
+    });
+    return () => ctx.revert();
+});
 
   return (
     <section
