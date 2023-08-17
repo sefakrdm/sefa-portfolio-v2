@@ -16,7 +16,6 @@ import {
     PiTerminalDuotone,
     PiPaperPlaneTiltDuotone
 } from "react-icons/pi";
-import Link from "next/link";
 
 
 export default function Header() {
