@@ -16,6 +16,7 @@ export default function Home() {
   const currentYear = new Date().getFullYear();
 
   useIsomorphicLayoutEffect(() => {
+    return () => {
       // Scrollbar.use(OverscrollPlugin);
       const scroller = document.querySelector("[data-scrollbar]");
           const bodyScrollBar = Scrollbar.init(scroller, {
@@ -40,6 +41,7 @@ export default function Home() {
             },
         });
         bodyScrollBar.addListener(ScrollTrigger.refresh); 
+    }
   });
 
   return (
