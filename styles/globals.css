@@ -4,6 +4,16 @@
 
 html, body {
   font-family: "Poppins", sans-serif;
+  width: 100%;
+  height: 100vh;
+}
+
+#smooth-wrapper {
+  height: 100vh;
+}
+
+.scroll-content {
+  height: 100vh;
 }
 
 @layer base {

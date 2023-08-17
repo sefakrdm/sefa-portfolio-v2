@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { useState } from "react";
 import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap-trial/dist/ScrollTrigger";
-import { ScrollSmoother } from "gsap-trial/dist/ScrollSmoother";
-import { ScrollToPlugin } from "gsap-trial/dist/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+// import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
+import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
 import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 
 import {
@@ -20,15 +20,15 @@ import Link from "next/link";
 
 
 export default function Header() {
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
     const [scrollTextInner, setScrollTextInner] = useState(null);
     const [boxEl, setBoxEl] = useState([]);
     const [clickLink, setClickLink] = useState('');
     
     useIsomorphicLayoutEffect(() => {
-
-        let ctx = gsap.context(() => {
+        
+        return () => {
 
             gsap.to(".start-box", {
                 scrollTrigger: {
@@ -56,15 +56,11 @@ export default function Header() {
                 ease: "elastic.out(1, 0.5)"
             }, 0);
 
-        }, ".header-wrap");
-
-        return () => {
-            ctx.revert();
         }
         // let headerBoxin = 
         //     gsap.fromTo(".g-box", { duration: 5, scale: -10, delay: 0.5, stagger: 0.2, ease: "elastic", force3D: true }, { scale: 1 });
 
-    }, []);
+    });
     
     // useIsomorphicLayoutEffect(() => {
     //     return () => {
