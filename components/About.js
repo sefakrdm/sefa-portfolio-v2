@@ -8,7 +8,7 @@ export default function About() {
   gsap.registerPlugin(ScrollTrigger);
 
   useIsomorphicLayoutEffect(() => {
-    const ctx = gsap.context(() => {
+    let ctx = gsap.context(() => {
       const a = gsap.timeline({
         scrollTrigger: {
           trigger: ".right-box",
@@ -31,7 +31,7 @@ export default function About() {
         xPercent: 0,
         ease: "none",
       }, 0);
-    });
+    }, ".about-wrap");
     return () => ctx.revert();
 });
 
