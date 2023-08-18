@@ -2,7 +2,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-// import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
+import Scrollbar from 'smooth-scrollbar';
+import OverscrollPlugin from 'smooth-scrollbar/dist/plugins/overscroll';
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
 import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 
@@ -24,6 +25,38 @@ export default function Header() {
     const [scrollTextInner, setScrollTextInner] = useState(null);
     const [boxEl, setBoxEl] = useState([]);
     const [clickLink, setClickLink] = useState('');
+
+    useIsomorphicLayoutEffect(() => {
+        // Scrollbar.use(OverscrollPlugin);
+        const scroller = document.querySelector(".scroller");
+            let bodyScrollBar = Scrollbar.init(scroller, {
+              renderByPixels: true,
+              damping: 0.09,
+              // plugins: {
+              //  overscroll: {
+              //    effect: "bounce"
+              //  }
+              // }
+            });
+      
+            gsap.registerPlugin(ScrollTrigger);
+      
+            // code for gsap and smooth scrollbar work together
+            ScrollTrigger.scrollerProxy(scroller, {
+              scrollTop(value) {
+                if (arguments.length) {
+                  bodyScrollBar.scrollTop = value;
+                }
+                return bodyScrollBar.scrollTop;
+              },
+          });
+          bodyScrollBar.addListener(ScrollTrigger.update);
+    
+          ScrollTrigger.defaults({ 
+            scroller: scroller,
+            pinType: 'transform'
+          });		
+      });
     
     useIsomorphicLayoutEffect(() => {
         
