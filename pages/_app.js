@@ -50,7 +50,9 @@ export default function App({ Component, pageProps }) {
         <meta property="og:description" content="I am Sefa, 24 years old Full Stack Web Developer. I'm a passionate and enthusiastic software enthusiast with a strong desire to learn about new technologies." key="description" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
-      <Component {...pageProps} />
+      <div id="smooth-wrapper" className="scroller">
+        <Component {...pageProps} />
+      </div>
     </>
   )
 }

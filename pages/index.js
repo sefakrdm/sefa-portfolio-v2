@@ -16,7 +16,7 @@ export default function Home() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div id="smooth-wrapper" className="scroller">
+    <>
       <Header />
       <main>
         <About />
@@ -27,6 +27,6 @@ export default function Home() {
       <footer className="py-10 flex justify-center items-center">
         <div className="text-white">Copyright &copy; {currentYear} Sefa Karademir</div>
       </footer>
-    </div>
+    </>
   );
 }
