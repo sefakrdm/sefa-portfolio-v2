@@ -1,8 +1,6 @@
 import Image from "next/image";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import Scrollbar from 'smooth-scrollbar';
-import OverscrollPlugin from 'smooth-scrollbar/dist/plugins/overscroll';
 import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSwiper } from "swiper/react";
@@ -19,39 +17,7 @@ export default function Works() {
   gsap.registerPlugin(ScrollTrigger);
 
   useIsomorphicLayoutEffect(() => {
-    // Scrollbar.use(OverscrollPlugin);
-    const scroller = document.querySelector(".scroller");
-        let bodyScrollBar = Scrollbar.init(scroller, {
-          renderByPixels: true,
-          damping: 0.09,
-          // plugins: {
-          //  overscroll: {
-          //    effect: "bounce"
-          //  }
-          // }
-        });
-  
-        gsap.registerPlugin(ScrollTrigger);
-  
-        // code for gsap and smooth scrollbar work together
-        ScrollTrigger.scrollerProxy(scroller, {
-          scrollTop(value) {
-            if (arguments.length) {
-              bodyScrollBar.scrollTop = value;
-            }
-            return bodyScrollBar.scrollTop;
-          },
-      });
-      bodyScrollBar.addListener(ScrollTrigger.update);
-
-      ScrollTrigger.defaults({ 
-        scroller: scroller,
-        pinType: 'transform'
-      });		
-  });
-
-  useIsomorphicLayoutEffect(() => {
-    return () => {
+    let ctx = gsap.context(() => {
       const tl = new gsap.timeline();
 
       const a = gsap.timeline({
@@ -86,8 +52,9 @@ export default function Works() {
           },
           0
         );
-    };
-  }, []);
+      }, ".works-wrap");
+        return () => ctx.revert();
+  });
   return (
     <section
       id="works"
