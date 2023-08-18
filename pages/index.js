@@ -1,9 +1,3 @@
-import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-// import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
-import Scrollbar from 'smooth-scrollbar';
-import OverscrollPlugin from 'smooth-scrollbar/dist/plugins/overscroll';
-import { useIsomorphicLayoutEffect } from "@/helpers/useIsomorphicEffect";
 
 //* Components
 import Header from "@/components/Header";
