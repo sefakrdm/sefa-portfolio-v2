@@ -32,7 +32,7 @@ export default function App({ Component, pageProps }) {
             return bodyScrollBar.scrollTop;
           },
       });
-      bodyScrollBar.addListener(ScrollTrigger.update);
+      bodyScrollBar.addListener(ScrollTrigger.refresh);
 
       ScrollTrigger.defaults({ 
         scroller: scroller,
