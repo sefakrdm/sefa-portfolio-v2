@@ -42,7 +42,8 @@ export default function About() {
       pinType: "transform",
     });	
 
-    let ctx = gsap.context(() => {
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 1024px)", () => {
       const a = gsap.timeline({
         scrollTrigger: {
           trigger: ".right-box",
@@ -65,8 +66,32 @@ export default function About() {
         xPercent: 0,
         ease: "none",
       }, 0);
-    }, ".about-wrap");
-    return () => ctx.revert();
+    });
+    mm.add("(max-width: 1024px)", () => {
+      const a = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".right-box",
+          start: "top bottom",
+          end: "-=400px top",
+          scrub: 1,
+        },
+      });
+      a.fromTo(".left-box", {
+        xPercent: 50,
+        ease: "none",
+      }, {
+        xPercent: 0,
+        ease: "none",
+      }, 0),
+      a.fromTo(".right-box", {
+        xPercent: -50,
+        ease: "none",
+      }, {
+        xPercent: 0,
+        ease: "none",
+      }, 0);
+    });
+    return () => mm.revert();
 });
 
   return (
@@ -75,7 +100,7 @@ export default function About() {
       className="w-full container mx-auto py-4 about-wrap"
     >
       <div className="grid grid-rows-1 lg:grid-cols-2 grid-cols-1 gap-4">
-        <div className="group bg-emerald-300 rounded-xxl text-zinc-800 relative border-t border-zinc-700 flex items-end justify-between left-box z-10 min-h-[350px]">
+        <div className="group bg-emerald-300 rounded-xxl text-zinc-800 relative border-t border-zinc-700 flex items-end justify-between left-box z-10 md:min-h-[350px]">
           <Image src="/avatar-2.png" width="300" height="300" alt="" />
           <div className="flex lg:flex-row flex-col items-center justify-center h-full">
             <div className="flex flex-col justify-center w-2/3">
@@ -84,7 +109,7 @@ export default function About() {
             <PiCaretRightDuotone size={60} className="ml-1 lg:rotate-0 rotate-90" />
           </div>
         </div>
-        <div className="group p-6 bg-zinc-800 rounded-xxl relative border-t border-zinc-700 right-box z-0 mim-h-[350px]">
+        <div className="group p-6 bg-zinc-800 rounded-xxl relative border-t border-zinc-700 right-box z-0 md:mim-h-[350px]">
           <p className="text-2xl text-zinc-300 py-4 leading-snug">
             I am Sefa, 24 years old Full Stack Web Developer. I&apos;m a
             passionate and enthusiastic software enthusiast with a strong desire

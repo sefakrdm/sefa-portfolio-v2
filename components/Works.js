@@ -51,8 +51,8 @@ export default function Works() {
       pinType: "transform",
     });
 
-    let ctx = gsap.context(() => {
-
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 1024px)", () => {
       const a = gsap.timeline({
         scrollTrigger: {
           trigger: ".right-box-works",
@@ -85,8 +85,42 @@ export default function Works() {
           },
           0
         );
-      }, ".works-wrap");
-        return () => ctx.revert();
+      });
+      mm.add("(max-width: 1024px)", () => {
+        const a = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".right-box-works",
+            start: "top bottom",
+            end: "-=600px top",
+            scrub: 1
+          },
+        });
+        a.fromTo(
+          ".left-box-works",
+          {
+            xPercent: 50,
+            ease: "none",
+          },
+          {
+            xPercent: 0,
+            ease: "none",
+          },
+          0
+        ),
+          a.fromTo(
+            ".right-box-works",
+            {
+              xPercent: -50,
+              ease: "none",
+            },
+            {
+              xPercent: 0,
+              ease: "none",
+            },
+            0
+          );
+        });
+        return () => mm.revert();
   });
   return (
     <section
@@ -103,7 +137,7 @@ export default function Works() {
           //     momentumBounce: !1,
           //     momentumVelocityRatio: .3
           // }}
-          className="works-slider block rounded-xxl relative left-box-works z-0 min-h-[350px]"
+          className="works-slider block rounded-xxl relative left-box-works z-0 md:min-h-[350px] min-h-[200px]"
         >
           <SwiperSlide className="bg-zinc-800 border-t border-zinc-700">
             <Link href="#" className="block w-full image-container">
@@ -133,7 +167,7 @@ export default function Works() {
           </SwiperSlide>
           <SlideNaviButtons />
         </Swiper>
-        <div className="group bg-orange-300 rounded-xxl text-zinc-800 relative border-t border-zinc-700 flex items-end justify-between right-box-works z-10 min-h-[350px]">
+        <div className="group bg-orange-300 rounded-xxl text-zinc-800 relative border-t border-zinc-700 flex items-end justify-between right-box-works z-10 md:min-h-[350px]">
           <div className="flex lg:flex-row flex-col items-center justify-center h-full">
             <PiCaretLeftDuotone size={60} className="mr-1 lg:rotate-0 rotate-90" />
             <div className="flex flex-col justify-center w-2/3">

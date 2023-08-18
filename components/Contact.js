@@ -41,7 +41,10 @@ export default function Contact() {
         scroller: scroller,
         pinType: "transform",
       });
-      
+
+      const mm = gsap.matchMedia();
+      mm.add("(min-width: 1024px)", () => {
+
         const a = gsap.timeline({
           scrollTrigger: {
             trigger: ".contact-wrap",
@@ -82,6 +85,53 @@ export default function Contact() {
             autoAlpha: 1,
             ease: "none",
             }, 0);
+      });
+
+      mm.add("(max-width: 1024px)", () => {
+        
+        const a = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".contact-wrap",
+            start: "-=2000px bottom",
+            end: "-=900px top",
+            scrub: 1
+          },
+        });
+        a.fromTo(".contact-wrap",{
+            yPercent: 35,
+            scale: 0.2,
+            autoAlpha: 0,
+            ease: "none",
+          }, {
+            yPercent: 0,
+            scale: 1,
+            autoAlpha: 1,
+            ease: "none",
+          }, 0);
+        
+        const a2 = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".contact-wrap",
+                start: "-=200px bottom",
+                end: "-=1000px top",
+                scrub: 1
+            },
+        });
+        a2.fromTo(".form-item", {
+            scale: 0,
+            autoAlpha: 0,
+            ease: "none",
+        }, {
+            stagger: 0.5,
+            duration: 1,
+            delay: 1,
+            scale: 1,
+            autoAlpha: 1,
+            ease: "none",
+            }, 0);
+
+      });
+      return () => mm.revert();
     });
   return (
     <section
