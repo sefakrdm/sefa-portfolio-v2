@@ -103,7 +103,7 @@ export default function Works() {
           //     momentumBounce: !1,
           //     momentumVelocityRatio: .3
           // }}
-          className="works-slider block bg-zinc-800 rounded-xxl relative border-t border-zinc-700 left-box-works z-0"
+          className="works-slider block bg-zinc-800 rounded-xxl relative border-t border-zinc-700 left-box-works z-0 min-h-fit max-h-fit"
         >
           <SwiperSlide>
             <Link href="#" className="flex justify-center items-center">
