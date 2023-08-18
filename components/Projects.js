@@ -91,7 +91,6 @@ export default function Projects() {
           }, 0);
         }, ".projects-wrap");
         return () => ctx.revert();
-        };
       });
   return (
     <section id="projects" className="w-full container mx-auto projects-wrap xl:px-0 px-4">
