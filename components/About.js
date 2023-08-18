@@ -23,6 +23,9 @@ export default function About() {
 
     gsap.registerPlugin(ScrollTrigger);
 
+    bodyScrollBar.setPosition(0, 0);
+    bodyScrollBar.track.xAxis.element.remove();
+
     // code for gsap and smooth scrollbar work together
     ScrollTrigger.scrollerProxy(scroller, {
       scrollTop(value) {
@@ -32,7 +35,7 @@ export default function About() {
         return bodyScrollBar.scrollTop;
       },
     });
-    bodyScrollBar.addListener(ScrollTrigger.refresh);
+    bodyScrollBar.addListener(ScrollTrigger.update);
 
     ScrollTrigger.defaults({
       scroller: scroller,

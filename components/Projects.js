@@ -13,37 +13,40 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Projects() {
-    const scroller = document.querySelector(".scroller");
-    let bodyScrollBar = Scrollbar.init(scroller, {
-      renderByPixels: true,
-      damping: 0.09,
-      // plugins: {
-      //  overscroll: {
-      //    effect: "bounce"
-      //  }
-      // }
-    });
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    // code for gsap and smooth scrollbar work together
-    ScrollTrigger.scrollerProxy(scroller, {
-      scrollTop(value) {
-        if (arguments.length) {
-          bodyScrollBar.scrollTop = value;
-        }
-        return bodyScrollBar.scrollTop;
-      },
-    });
-    bodyScrollBar.addListener(ScrollTrigger.refresh);
-
-    ScrollTrigger.defaults({
-      scroller: scroller,
-      pinType: "transform",
-    });
 
     useIsomorphicLayoutEffect(() => {
-      let ctx = gsap.context(() => {
+      const scroller = document.querySelector(".scroller");
+      let bodyScrollBar = Scrollbar.init(scroller, {
+        renderByPixels: true,
+        damping: 0.09,
+        // plugins: {
+        //  overscroll: {
+        //    effect: "bounce"
+        //  }
+        // }
+      });
+  
+      gsap.registerPlugin(ScrollTrigger);
+
+      bodyScrollBar.setPosition(0, 0);
+      bodyScrollBar.track.xAxis.element.remove();
+  
+      // code for gsap and smooth scrollbar work together
+      ScrollTrigger.scrollerProxy(scroller, {
+        scrollTop(value) {
+          if (arguments.length) {
+            bodyScrollBar.scrollTop = value;
+          }
+          return bodyScrollBar.scrollTop;
+        },
+      });
+      bodyScrollBar.addListener(ScrollTrigger.update);
+  
+      ScrollTrigger.defaults({
+        scroller: scroller,
+        pinType: "transform",
+      });
+    
         const a = gsap.timeline({
           scrollTrigger: {
             trigger: ".projects-wrap",
@@ -84,8 +87,6 @@ export default function Projects() {
             autoAlpha: 1,
             ease: "none",
           }, 0);
-        }, ".projects-wrap");
-        return () => ctx.revert();
       });
   return (
     <section id="projects" className="w-full container mx-auto projects-wrap xl:px-0 px-4">

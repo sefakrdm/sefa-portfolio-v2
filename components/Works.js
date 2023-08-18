@@ -32,6 +32,9 @@ export default function Works() {
 
     gsap.registerPlugin(ScrollTrigger);
 
+    bodyScrollBar.setPosition(0, 0);
+    bodyScrollBar.track.xAxis.element.remove();
+
     // code for gsap and smooth scrollbar work together
     ScrollTrigger.scrollerProxy(scroller, {
       scrollTop(value) {
@@ -41,7 +44,7 @@ export default function Works() {
         return bodyScrollBar.scrollTop;
       },
     });
-    bodyScrollBar.addListener(ScrollTrigger.refresh);
+    bodyScrollBar.addListener(ScrollTrigger.update);
 
     ScrollTrigger.defaults({
       scroller: scroller,
@@ -49,7 +52,6 @@ export default function Works() {
     });
 
     let ctx = gsap.context(() => {
-      const tl = new gsap.timeline();
 
       const a = gsap.timeline({
         scrollTrigger: {
