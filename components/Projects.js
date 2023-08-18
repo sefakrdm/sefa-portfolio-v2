@@ -48,7 +48,7 @@ export default function Projects() {
     });
 
     useIsomorphicLayoutEffect(() => {
-      return () => {
+      let ctx = gsap.context(() => {
         const a = gsap.timeline({
           scrollTrigger: {
             trigger: ".projects-wrap",
@@ -58,39 +58,41 @@ export default function Projects() {
           },
         });
         a.fromTo(".projects-wrap",{
-            yPercent: 35,
-            scale: 0.2,
-            autoAlpha: 0,
-            ease: "none",
-          }, {
-            yPercent: 0,
-            scale: 1,
+          yPercent: 35,
+          scale: 0.2,
+          autoAlpha: 0,
+          ease: "none",
+        }, {
+          yPercent: 0,
+          scale: 1,
             autoAlpha: 1,
             ease: "none",
           }, 0);
         
         const a2 = gsap.timeline({
             scrollTrigger: {
-                trigger: ".projects-wrap",
-                start: "-=400px bottom",
-                end: "-=400px top",
-                scrub: 1
+              trigger: ".projects-wrap",
+              start: "-=400px bottom",
+              end: "-=400px top",
+              scrub: 1
             },
-        });
-        a2.fromTo(".project-card", {
+          });
+          a2.fromTo(".project-card", {
             scale: 0,
             autoAlpha: 0,
             ease: "none",
-        }, {
+          }, {
             stagger: 0.3,
             duration: 1,
             delay: 1,
             scale: 1,
             autoAlpha: 1,
             ease: "none",
-            }, 0);
-      };
-    }, []);
+          }, 0);
+        }, ".projects-wrap");
+        return () => ctx.revert();
+        };
+      });
   return (
     <section id="projects" className="w-full container mx-auto projects-wrap xl:px-0 px-4">
         <div className="group p-8 bg-zinc-800 rounded-xxl relative scale-100 border-t border-zinc-700">
