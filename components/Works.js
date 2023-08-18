@@ -91,7 +91,7 @@ export default function Works() {
   return (
     <section
       id="works"
-      className="w-full container mx-auto py-4 works-wrap xl:px-0 px-4"
+      className="w-full container mx-auto py-4 works-wrap"
     >
       <div className="grid grid-rows-1 lg:grid-cols-2 grid-cols-1 gap-4">
         <Swiper
@@ -103,27 +103,31 @@ export default function Works() {
           //     momentumBounce: !1,
           //     momentumVelocityRatio: .3
           // }}
-          className="works-slider block bg-zinc-800 rounded-xxl relative border-t border-zinc-700 left-box-works z-0 min-h-fit max-h-fit"
+          className="works-slider block rounded-xxl relative left-box-works z-0"
         >
-          <SwiperSlide className="min-h-fit max-h-fit">
-            <Link href="#" className="flex justify-center items-center">
+          <SwiperSlide className="bg-zinc-800 border-t border-zinc-700">
+            <Link href="#" className="block w-full image-container">
               <Image
                 src="/hostriva-net.png"
-                width={700}
-                height={700}
+                loading="lazy"
+                layout="responsive"
+                width={500}
+                height={500}
                 alt=""
-                className="object-cover"
+                className="object-contain w-full relative"
               />
             </Link>
           </SwiperSlide>
-          <SwiperSlide className="min-h-fit max-h-fit">
-            <Link href="#" className="flex justify-center items-center">
+          <SwiperSlide className="bg-zinc-800 border-t border-zinc-700">
+            <Link href="#" className="block w-full image-container">
               <Image
                 src="/bersa-com-tr.png"
-                width={700}
-                height={700}
+                loading="lazy"
+                layout="responsive"
+                width={500}
+                height={500}
                 alt=""
-                className="object-cover"
+                className="object-contain w-full relative"
               />
             </Link>
           </SwiperSlide>

@@ -16,6 +16,10 @@ html, body {
   height: 100vh;
 }
 
+.image-container > div {
+    position: unset !important;
+  }
+
 @layer base {
   .rounded-xxl {
     @apply rounded-[45px];
