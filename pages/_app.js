@@ -1,4 +1,6 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Scrollbar from 'smooth-scrollbar';
 import OverscrollPlugin from 'smooth-scrollbar/dist/plugins/overscroll';
 import { useIsomorphicLayoutEffect } from '@/helpers/useIsomorphicEffect';
