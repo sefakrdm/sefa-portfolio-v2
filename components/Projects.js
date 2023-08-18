@@ -88,21 +88,23 @@ export default function Projects() {
         return () => ctx.revert();
       });
   return (
-    <section id="projects" className="w-full container mx-auto projects-wrap xl:px-0 px-4">
-        <div className="group p-8 bg-zinc-800 rounded-xxl relative scale-100 border-t border-zinc-700">
-            <h2 className="uppercase text-2xl font-semibold">My Projects</h2>
-            <div className={`grid grid-rows-1 gap-4 py-8 ${projects?.length <= 2 ? 'grid-cols-'+projects.length:'lg:grid-cols-3 md:grid-cols-2 grid-cols-1'}`}>
-                {projects?.map((project, index) =>(                    
-                    <Link href={project.url} key={project.id} className={`group p-4 min-h-[150px] text-zinc-800 cursor-pointer rounded-xxl relative border-t border-zinc-600 flex justify-center items-center project-card`} style={{backgroundColor: project.card_color}}>
-                        <span className="absolute top-5 left-5 font-semibold text-lg">{'.'+(index+1)}</span>
-                        <PiArrowUpRightDuotone size={30} className="absolute top-5 right-5" />
-                        <Image src={project.image} width="150" height="150" alt={project.name} />
-                        <h3 className="text-xl font-semibold hidden">{project.name}</h3>
-                        <span className="absolute bottom-5 left-5 text-sm">View Project</span>
-                    </Link>
-                ))}
-            </div>
-        </div>
-    </section>
+    <div id="smooth-wrapper" className="scroller">
+      <section id="projects" className="w-full container mx-auto projects-wrap xl:px-0 px-4">
+          <div className="group p-8 bg-zinc-800 rounded-xxl relative scale-100 border-t border-zinc-700">
+              <h2 className="uppercase text-2xl font-semibold">My Projects</h2>
+              <div className={`grid grid-rows-1 gap-4 py-8 ${projects?.length <= 2 ? 'grid-cols-'+projects.length:'lg:grid-cols-3 md:grid-cols-2 grid-cols-1'}`}>
+                  {projects?.map((project, index) =>(                    
+                      <Link href={project.url} key={project.id} className={`group p-4 min-h-[150px] text-zinc-800 cursor-pointer rounded-xxl relative border-t border-zinc-600 flex justify-center items-center project-card`} style={{backgroundColor: project.card_color}}>
+                          <span className="absolute top-5 left-5 font-semibold text-lg">{'.'+(index+1)}</span>
+                          <PiArrowUpRightDuotone size={30} className="absolute top-5 right-5" />
+                          <Image src={project.image} width="150" height="150" alt={project.name} />
+                          <h3 className="text-xl font-semibold hidden">{project.name}</h3>
+                          <span className="absolute bottom-5 left-5 text-sm">View Project</span>
+                      </Link>
+                  ))}
+              </div>
+          </div>
+      </section>
+    </div>
   )
 }
