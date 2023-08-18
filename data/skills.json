@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "name": "PHP",
+        "image": "/php-logo.svg"
+    },
+
+    {
+        "id": 2,
+        "name": "Node.js",
+        "image": "/nodejs-logo.svg"
+    },
+
+    {
+        "id": 3,
+        "name": "JavaScript",
+        "image": "/javascript-logo.svg"
+    },
+
+    {
+        "id": 4,
+        "name": "TypeScript",
+        "image": "/typescript-logo.svg"
+    },
+
+    {
+        "id": 5,
+        "name": "React",
+        "image": "/react-logo.svg"
+    },
+
+    {
+        "id": 6,
+        "name": "Next.js",
+        "image": "/next-logo.svg"
+    },
+
+    {
+        "id": 7,
+        "name": "Vue.js",
+        "image": "/vuejs-logo.svg"
+    },
+
+    {
+        "id": 8,
+        "name": "Nuxt.js",
+        "image": "/nuxt-logo.svg"
+    },
+
+    {
+        "id": 9,
+        "name": "jQuery",
+        "image": "/jquery-logo.svg"
+    },
+
+    {
+        "id": 10,
+        "name": "HTML",
+        "image": "/html-logo.svg"
+    },
+
+    {
+        "id": 11,
+        "name": "CSS/SCSS/Sass",
+        "image": "/css-logo.svg"
+    },
+
+    {
+        "id": 12,
+        "name": "Tailwind",
+        "image": "/tailwind-logo.svg"
+    },
+
+    {
+        "id": 13,
+        "name": "MySQL",
+        "image": "/mysql-logo.svg"
+    },
+
+    {
+        "id": 14,
+        "name": "MongoDB",
+        "image": "/mongodb-logo.svg"
+    },
+
+    {
+        "id": 15,
+        "name": "Firebase",
+        "image": "/firebase-logo.svg"
+    },
+    
+    {
+        "id": 16,
+        "name": "Supabase",
+        "image": "/supabase-logo.svg"
+    }
+
+]

@@ -13,7 +13,7 @@ export default function Contact() {
       const scroller = document.querySelector(".scroller");
       let bodyScrollBar = Scrollbar.init(scroller, {
         renderByPixels: true,
-        damping: 0.09,
+        damping: 0.075,
         // plugins: {
         //  overscroll: {
         //    effect: "bounce"
@@ -45,8 +45,8 @@ export default function Contact() {
         const a = gsap.timeline({
           scrollTrigger: {
             trigger: ".contact-wrap",
-            start: "-=1800px bottom",
-            end: "-=1000px top",
+            start: "-=1200px bottom",
+            end: "-=900px top",
             scrub: 1
           },
         });
@@ -65,8 +65,8 @@ export default function Contact() {
         const a2 = gsap.timeline({
             scrollTrigger: {
                 trigger: ".contact-wrap",
-                start: "-=800px bottom",
-                end: "-=600px center",
+                start: "-=200px bottom",
+                end: "-=700px top",
                 scrub: 1
             },
         });
@@ -89,8 +89,8 @@ export default function Contact() {
         className="w-full container mx-auto contact-wrap"
     >
         <div className="group p-8 bg-zinc-800 rounded-xxl relative scale-100 border-t border-zinc-700">
-            <h2 className="uppercase text-xl text-cyan-200">GET IN TOUCH!</h2>
-            <p className="text-[4rem] my-4 text-cyan-200">Wanna work together?</p>
+            <h2 className="uppercase text-xl">GET IN TOUCH!</h2>
+            <p className="text-[4rem] my-4">Wanna work together?</p>
             <div className="">
                 <Link href="mailto:info@sefakarademir.com.tr" className="block border-2 border-cyan-200 text-cyan-200 py-4 px-5 w-fit rounded-xxl text-xl transition-all duration-300 ease-in-out hover:bg-cyan-200 hover:text-black">info@sefakarademir.com.tr</Link>
             </div>

@@ -30,7 +30,7 @@ export default function Header() {
         const scroller = document.querySelector(".scroller");
         let bodyScrollBar = Scrollbar.init(scroller, {
           renderByPixels: true,
-          damping: 0.09,
+          damping: 0.075,
           // plugins: {
           //  overscroll: {
           //    effect: "bounce"

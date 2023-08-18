@@ -22,7 +22,7 @@ export default function Works() {
     const scroller = document.querySelector(".scroller");
     let bodyScrollBar = Scrollbar.init(scroller, {
       renderByPixels: true,
-      damping: 0.09,
+      damping: 0.075,
       // plugins: {
       //  overscroll: {
       //    effect: "bounce"
@@ -103,7 +103,7 @@ export default function Works() {
           //     momentumBounce: !1,
           //     momentumVelocityRatio: .3
           // }}
-          className="works-slider block rounded-xxl relative left-box-works z-0"
+          className="works-slider block rounded-xxl relative left-box-works z-0 min-h-[350px]"
         >
           <SwiperSlide className="bg-zinc-800 border-t border-zinc-700">
             <Link href="#" className="block w-full image-container">
@@ -133,12 +133,12 @@ export default function Works() {
           </SwiperSlide>
           <SlideNaviButtons />
         </Swiper>
-        <div className="group bg-orange-300 rounded-xxl text-zinc-800 relative border-t border-zinc-700 flex items-end justify-between right-box-works z-10">
+        <div className="group bg-orange-300 rounded-xxl text-zinc-800 relative border-t border-zinc-700 flex items-end justify-between right-box-works z-10 min-h-[350px]">
           <div className="flex lg:flex-row flex-col items-center justify-center h-full">
             <PiCaretLeftDuotone size={60} className="mr-1 lg:rotate-0 rotate-90" />
             <div className="flex flex-col justify-center w-2/3">
-              <h2 className="text-3xl font-semibold uppercase">
-                Works
+              <h2 className="text-4xl font-semibold leading-tight">
+                Powerful Touches in My Work
               </h2>
             </div>
           </div>

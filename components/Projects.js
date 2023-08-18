@@ -18,7 +18,7 @@ export default function Projects() {
       const scroller = document.querySelector(".scroller");
       let bodyScrollBar = Scrollbar.init(scroller, {
         renderByPixels: true,
-        damping: 0.09,
+        damping: 0.075,
         // plugins: {
         //  overscroll: {
         //    effect: "bounce"
@@ -51,7 +51,7 @@ export default function Projects() {
           scrollTrigger: {
             trigger: ".projects-wrap",
             start: "-=400px bottom",
-            end: "top center",
+            end: "-=800px top",
             scrub: 1
           },
         });
@@ -71,7 +71,7 @@ export default function Projects() {
             scrollTrigger: {
               trigger: ".projects-wrap",
               start: "-=400px bottom",
-              end: "-=400px top",
+              end: "-=150px center",
               scrub: 1
             },
           });
@@ -94,7 +94,7 @@ export default function Projects() {
             <h2 className="uppercase text-2xl font-semibold">My Projects</h2>
             <div className={`grid grid-rows-1 gap-4 py-8 ${projects?.length <= 2 ? 'grid-cols-'+projects.length:'lg:grid-cols-3 md:grid-cols-2 grid-cols-1'}`}>
                 {projects?.map((project, index) =>(                    
-                    <Link href={project.url} key={project.id} className={`group p-4 min-h-[150px] text-zinc-800 cursor-pointer rounded-xxl relative border-t border-zinc-600 flex justify-center items-center project-card`} style={{backgroundColor: project.card_color}}>
+                    <Link href={project.url} key={project.id} className={`group p-4 min-h-[175px] text-zinc-800 cursor-pointer rounded-xxl relative border-t border-zinc-600 flex justify-center items-center project-card`} style={{backgroundColor: project.card_color}}>
                         <span className="absolute top-5 left-5 font-semibold text-lg">{'.'+(index+1)}</span>
                         <PiArrowUpRightDuotone size={30} className="absolute top-5 right-5" />
                         <Image src={project.image} width="150" height="150" alt={project.name} />
