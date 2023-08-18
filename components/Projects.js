@@ -47,6 +47,9 @@ export default function Projects() {
         pinType: "transform",
       });
     
+      const mm = gsap.matchMedia();
+      mm.add("(min-width: 1024px)", () => {
+
         const a = gsap.timeline({
           scrollTrigger: {
             trigger: ".projects-wrap",
@@ -87,6 +90,51 @@ export default function Projects() {
             autoAlpha: 1,
             ease: "none",
           }, 0);
+        });
+
+        mm.add("(max-width: 1024px)", () => {
+
+          const a = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".projects-wrap",
+              start: "-=1000px bottom",
+              end: "-=1000px top",
+              scrub: 1
+            },
+          });
+          a.fromTo(".projects-wrap",{
+            yPercent: 35,
+            scale: 0.2,
+            autoAlpha: 0,
+            ease: "none",
+          }, {
+            yPercent: 0,
+            scale: 1,
+              autoAlpha: 1,
+              ease: "none",
+            }, 0);
+          
+          const a2 = gsap.timeline({
+              scrollTrigger: {
+                trigger: ".projects-wrap",
+                start: "-=400px bottom",
+                end: "-=700px top",
+                scrub: 1
+              },
+            });
+            a2.fromTo(".project-card", {
+              scale: 0,
+              autoAlpha: 0,
+              ease: "none",
+            }, {
+              stagger: 0.3,
+              duration: 1,
+              delay: 1,
+              scale: 1,
+              autoAlpha: 1,
+              ease: "none",
+            }, 0);
+        });
       });
   return (
     <section id="projects" className="w-full container mx-auto projects-wrap">
